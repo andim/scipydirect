@@ -112,7 +112,6 @@ def minimize(func, bounds=None, nvar=None, args=(), disp=False,
              fglper=0.01,
              volper=-1.0,
              sigmaper=-1.0,
-             logfilename='DIRresults.txt',
              ):
     """
     Solve an optimization problem using the DIRECT (Dividing Rectangles) algorithm.
@@ -188,9 +187,6 @@ def minimize(func, bounds=None, nvar=None, args=(), disp=False,
     sigmaper : float
         Terminate the optimization once the measure of the hyperrectangle is less
         than sigmaper.
-        
-    logfilename : string
-        Name of logfile.
     
     Returns
     -------
@@ -237,14 +233,15 @@ def minimize(func, bounds=None, nvar=None, args=(), disp=False,
                         l,
                         u,
                         algmethod,
-                        logfilename, 
+                        'dummylogfile', 
                         fglobal,
                         fglper,
                         volper,
                         sigmaper,
                         iidata,
                         ddata,
-                        cdata
+                        cdata,
+                        disp
                         )
 
     return OptimizeResult(x=x,fun=fun, status=ierror, success=ierror>0,
