@@ -35,12 +35,12 @@ __version_info__ = ('1', '0')
 __version__ = '.'.join(__version_info__)
 
 ERROR_MESSAGES = (
-    'Maximum number of levels has been reached.',
-    'An error occured while the function was sampled',
-    'There was an error in the creation of the sample points',
+    'u[i] < l[i] for some i',
+    'maxf is too large',
     'Initialization failed',
-    'maxf is too large'
-    'u[i] < l[i] for some i'
+    'There was an error in the creation of the sample points',
+    'An error occured while the function was sampled',
+    'Maximum number of levels has been reached.',
 )
 
 SUCCESS_MESSAGES = (
@@ -247,8 +247,5 @@ def minimize(func, bounds=None, nvar=None, args=(), disp=False,
                         cdata
                         )
 
-    if ierror < 0:
-        print ierror
-        raise Exception(ERROR_MESSAGES[abs(ierror)-1])
-        
-    return OptimizeResult(x=x,fun=fun, status=ierror)
+    return OptimizeResult(x=x,fun=fun, status=ierror, success=ierror>0,
+                          message=SUCCESS_MESSAGES[ierror-1] if ierror>0 else ERROR_MESSAGES[abs(ierror)-1])
