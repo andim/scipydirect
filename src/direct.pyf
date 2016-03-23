@@ -22,7 +22,7 @@ end python module direct__user__routines
 
 python module direct ! in 
     interface  ! in :direct
-        subroutine direct(fcn,x,n,eps,maxf,maxt,fmin,l,u,algmethod,ierror,logfilename,fglobal,fglper,volper,sigmaper,iidata,iisize,ddata,idsize,cdata,icsize) ! in :direct:DIRect.f
+        subroutine direct(fcn,x,n,eps,maxf,maxt,fmin,l,u,algmethod,ierror,logfilename,fglobal,fglper,volper,sigmaper,iidata,iisize,ddata,idsize,cdata,icsize,disp) ! in :direct:DIRect.f
 			use direct__user__routines
             external fcn
             double precision dimension(n), intent(out) :: x
@@ -46,6 +46,7 @@ python module direct ! in
             integer optional,check(len(ddata)>=idsize),depend(ddata) :: idsize=len(ddata)
             character dimension(icsize,40),intent(c) :: cdata
             integer optional,check(shape(cdata,0)==icsize),depend(cdata) :: icsize=shape(cdata,0)
+            integer :: algmethod
             integer :: jones
             common /directcontrol/ jones
         end subroutine direct

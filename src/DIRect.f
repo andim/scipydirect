@@ -36,7 +36,8 @@ C+-----------------------------------------------------------------------+
       SUBROUTINE Direct(fcn, x, n, eps, maxf, maxT, fmin, l, u,
      +                  algmethod, Ierror, logfilename,  
      +                  fglobal, fglper, volper, sigmaper,
-     +                  iidata, iisize, ddata, idsize, cdata, icsize)
+     +                  iidata, iisize, ddata, idsize, cdata, icsize,
+     +                  disp)
 
 C+-----------------------------------------------------------------------+
 C|    SUBROUTINE Direct                                                  |
@@ -84,6 +85,8 @@ C|   ddata -- DOUBLE PRECISION array of user data. See iidata.           |
 C|  idsize -- Size of array ddata.                                       |
 C|   cdata -- Character array. See iidata.                               |
 C|  icsize -- Size of array ddata.                                       |
+C|                                                                       |
+C|  disp -- display progress or not                                      |
 C|                                                                       |
 C| On return                                                             |
 C|                                                                       |
@@ -160,7 +163,7 @@ C+-----------------------------------------------------------------------+
 C| EXTERNAL Variables.                                                   |
 C+-----------------------------------------------------------------------+
       EXTERNAL fcn
-      INTEGER n, maxf, maxT, algmethod, Ierror, logfile, dwrit
+      INTEGER n, maxf, maxT, algmethod, Ierror, logfile, dwrit, disp
       CHARACTER*(*) logfilename
 Cf2py intent(in) logfilename
       DOUBLE PRECISION  x(n),fmin,eps,l(n),u(n)
@@ -305,11 +308,11 @@ C+-----------------------------------------------------------------------+
 C|  Define and open the logfile                                          |
 C+-----------------------------------------------------------------------+
       logfile    = 2
-      open(logfile, file=logfilename)
+CC      open(logfile, file=logfilename)
 
 C+-----------------------------------------------------------------------+
       writed = 0
-      dwrit  = 0
+      dwrit  = disp
       JONES  = algmethod
 C+-----------------------------------------------------------------------+
 C| Save the upper and lower bounds.                                      |
@@ -334,18 +337,18 @@ C+-----------------------------------------------------------------------+
 C+-----------------------------------------------------------------------+
 C| Write the header of the logfile.                                      |
 C+-----------------------------------------------------------------------+
-      CALL DIRheader(logfile, version, x, n, eps, maxf, maxT, l, u,
-     +               algmethod, maxfunc, maxdeep, fglobal, fglper,
-     +               Ierror, epsfix, iepschange, volper, sigmaper,
-     +               iidata, iisize, ddata, idsize, cdata,
-     +               icsize)
+CC      CALL DIRheader(logfile, version, x, n, eps, maxf, maxT, l, u,
+CC     +               algmethod, maxfunc, maxdeep, fglobal, fglper,
+CC     +               Ierror, epsfix, iepschange, volper, sigmaper,
+CC     +               iidata, iisize, ddata, idsize, cdata,
+CC     +               icsize)
 C+-----------------------------------------------------------------------+
 C| If an error has occured while writing the header (we do some checking |
 C| of variables there), return to the main program.                      |
 C+-----------------------------------------------------------------------+
-      IF (Ierror .lt. 0) then
-         RETURN
-      END IF
+CC      IF (Ierror .lt. 0) then
+CC         RETURN
+CC      END IF
 C+-----------------------------------------------------------------------+
 C| If the known global minimum is equal 0, we cannot divide by it.       |
 C| Therefore we set it to 1. If not, we set the divisionfactor to the    |
@@ -386,7 +389,7 @@ C+-----------------------------------------------------------------------+
       CALL DIRpreprc(u,l,n,l,u,oops)
       IF (oops .GT. 0) THEN
         Write(*,10005)
-        Write(logfile,10005)
+CC        Write(logfile,10005)
         IError = -3
         Return
       END IF
@@ -407,13 +410,15 @@ C| Added error checking.                                                 |
 C+-----------------------------------------------------------------------+
       IF (Ierror .lt. 0) then
          IF (Ierror .eq. -4) THEN
-            Write(*,10006)
-            Write(logfile,10006)
+             IF (dwrit .gt. 0) THEN
+                Write(*,10006)
+             ENDIF
+CC            Write(logfile,10006)
             return
          END IF
          IF (Ierror .eq. -5) THEN
             Write(*,10007)
-            Write(logfile,10007)
+CC            Write(logfile,10007)
             return
          END IF
       END IF
@@ -428,11 +433,16 @@ C| number of function evaluations and a warning. Otherwise, give out     |
 C| the iteration, the number of function evaluations done and fmin.      |
 C+-----------------------------------------------------------------------+
       IF (Ifeasiblef .gt. 0) then
-        write(*,10012) tstart-1,numfunc
-        write(logfile,10012) t,numfunc
+        IF (dwrit .gt. 0) THEN
+            write(*,10012) tstart-1,numfunc
+        ENDIF
+CC        write(logfile,10012) t,numfunc
       ELSE
-        Write(*,10002) numfunc, fmin, fmax
-        Write(logfile,10003) tstart-1,numfunc,fmin
+        IF (dwrit .gt. 0) THEN
+            Write(*,10002) numfunc, fmin, fmax
+        ENDIF
+CC        write(logfile,10012) t,numfunc
+CC        Write(logfile,10003) tstart-1,numfunc,fmin
       END IF
 C+-----------------------------------------------------------------------+
 C+-----------------------------------------------------------------------+
@@ -462,10 +472,10 @@ C+-----------------------------------------------------------------------+
               Write(*,10021)
               Write(*,10022)
               Write(*,10023)
-              Write(logfile,10020)
-              Write(logfile,10021)
-              Write(logfile,10022)
-              Write(logfile,10023)
+CC              Write(logfile,10020)
+CC              Write(logfile,10021)
+CC              Write(logfile,10022)
+CC              Write(logfile,10023)
               return
           END IF
         ENDIF
@@ -492,7 +502,7 @@ C| dept, stop the computation.                                           |
 C+-----------------------------------------------------------------------+
               IF (actdeep+1 .GE. mdeep) THEN
                  Write(*,10004)
-                 write(logfile,10004)
+CC                 write(logfile,10004)
                  Ierror = -6
                  GOTO 100
               END IF
@@ -525,7 +535,7 @@ C+-----------------------------------------------------------------------+
      +             fcn,x,l,fmin,minpos,u,n,maxfunc,maxdeep,oops)
               IF (oops .GT. 0) THEN
                 Write(*,10006)
-                Write(logfile,10006)
+CC                Write(logfile,10006)
                 IError = -4
                 return
               END IF
@@ -540,7 +550,7 @@ C+-----------------------------------------------------------------------+
      +            iidata, iisize, ddata, idsize, cdata, icsize)
               IF (oops .GT. 0) THEN
                 Write(*,10007)
-                Write(logfile,10007)
+CC                Write(logfile,10007)
                 IError = -5
                 return
               END IF
@@ -569,8 +579,10 @@ C| function evaluations, the minimum value of f (so far) and the position|
 C| in the array.                                                         |
 C+-----------------------------------------------------------------------+
         IF (oldpos .LT. minpos) THEN
-          Write(*,10002) numfunc,fmin, fmax
-          Write(logfile,10003) t,numfunc,fmin
+            IF (dwrit .gt. 0) THEN
+                Write(*,10002) numfunc,fmin, fmax
+            END IF
+CC          Write(logfile,10003) t,numfunc,fmin
         END IF
 C+-----------------------------------------------------------------------+
 C| If no feasible point has been found, give out the iteration, the      |
@@ -578,7 +590,7 @@ C| number of function evaluations and a warning.                         |
 C+-----------------------------------------------------------------------+
         IF (Ifeasiblef .gt. 0) then
           write(*,10012) t,numfunc
-          write(logfile,10012) t,numfunc
+CC          write(logfile,10012) t,numfunc
         END IF
 C+-----------------------------------------------------------------------+
 C+-----------------------------------------------------------------------+
@@ -605,7 +617,7 @@ C+-----------------------------------------------------------------------+
         IF (delta .LE. volper) THEN
            Ierror = 4
            Write(*,10011) delta, volper
-           Write(logfile,10011) delta, volper
+CC           Write(logfile,10011) delta, volper
            GOTO 100
         END IF
 C+-----------------------------------------------------------------------+
@@ -618,7 +630,7 @@ C+-----------------------------------------------------------------------+
         IF (delta .LE. sigmaper) THEN
            Ierror = 5
            Write(*,10013) delta, sigmaper
-           Write(logfile,10013) delta, sigmaper
+CC           Write(logfile,10013) delta, sigmaper
            GOTO 100
         END IF
 C+-----------------------------------------------------------------------+
@@ -630,7 +642,7 @@ C+-----------------------------------------------------------------------+
      +   THEN
            Ierror = 3
            Write(*,10010)
-           Write(logfile,10010)
+C           Write(logfile,10010)
            GOTO 100
         END IF
 C+-----------------------------------------------------------------------+
@@ -661,7 +673,7 @@ C+-----------------------------------------------------------------------+
         IF (increase .eq. 1) then        
            maxf = numfunc + oldmaxf
            IF (Ifeasiblef .eq. 0) then
-             write(logfile,10031) maxf
+CC             write(logfile,10031) maxf
              increase = 0
            END IF
         END IF
@@ -674,12 +686,14 @@ C+-----------------------------------------------------------------------+
         IF (numfunc .GT. maxf) THEN
            IF (Ifeasiblef .eq. 0) then
               Ierror = 1
-              Write(*,10008)
-              Write(logfile,10008)
+              IF (dwrit .gt. 0) THEN
+                  Write(*,10008)
+              END IF              
+CC              Write(logfile,10008)
               GOTO 100
            ELSE
               increase = 1
-              write(logfile,10030) numfunc
+CC              write(logfile,10030) numfunc
               maxf = numfunc+ oldmaxf
            END IF
         END IF
@@ -694,8 +708,10 @@ C+-----------------------------------------------------------------------+
 C| The algorithm stopped after maxT iterations.                          |
 C+-----------------------------------------------------------------------+
       Ierror = 2
-      Write(*,10009)
-      Write(logfile,10009)
+      IF (dwrit .gt. 0) THEN
+          Write(*,10009)
+      END IF
+CC      Write(logfile,10009)
 
 100   CONTINUE
 C+-----------------------------------------------------------------------+
@@ -730,7 +746,7 @@ C+-----------------------------------------------------------------------+
 C+-----------------------------------------------------------------------+
 C| Close the logfile.                                                    |
 C+-----------------------------------------------------------------------+
-      close(logfile)
+CC      close(logfile)
       
 C+-----------------------------------------------------------------------+
 C| Format statements.                                                    |

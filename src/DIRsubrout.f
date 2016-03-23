@@ -82,20 +82,20 @@ C+-----------------------------------------------------------------------+
                help2 = thirds(S(i,2)) - thirds(S(j,2))
                help2 = (f(i_,1) - f(j_,1))/help2
                IF (help2 .LE. 0.D0) THEN
-                 IF (dwrit .EQ. 2) THEN
-                   Write(logfile,*) "thirds > 0,help2 <= 0"
-                 END IF
+CC                 IF (dwrit .EQ. 2) THEN
+CC                   Write(logfile,*) "thirds > 0,help2 <= 0"
+CC                 END IF
                  GOTO 60
                END IF
                IF (help2 .LT. helplower) THEN
-                 IF (dwrit .EQ. 2) THEN
-                   Write(logfile,*) "helplower = ",help2
-                 END IF
+CC                 IF (dwrit .EQ. 2) THEN
+CC                   Write(logfile,*) "helplower = ",help2
+CC                 END IF
                  helplower = help2
                END IF
-         	   END IF
+               END IF
            END IF
-30       CONTINUE	     
+30       CONTINUE
          DO 31,i=j+1,maxpos
            i_ = S(i,1)
 C+-----------------------------------------------------------------------+
@@ -109,15 +109,15 @@ C+-----------------------------------------------------------------------+
                help2 = thirds(S(i,2)) - thirds(S(j,2))
                help2 = (f(i_,1) - f(j_,1))/help2
                IF (help2 .LE. 0.D0) THEN
-                 IF (dwrit .EQ. 2) THEN
-                   Write(logfile,*) "thirds < 0,help2 <= 0"
-                 END IF
+CC                 IF (dwrit .EQ. 2) THEN
+CC                   Write(logfile,*) "thirds < 0,help2 <= 0"
+CC                 END IF
                  GOTO 60
                END IF
                IF (help2 .GT. helpgreater) THEN
-                 IF (dwrit .EQ. 2) THEN
-                   Write(logfile,*) "helpgreater = ",help2
-                 END IF
+CC                 IF (dwrit .EQ. 2) THEN
+CC                   Write(logfile,*) "helpgreater = ",help2
+CC                 END IF
                  helpgreater = help2
                END IF
              END IF
@@ -134,16 +134,16 @@ C+-----------------------------------------------------------------------+
            END IF
            IF ((f(j_,1) - helplower * thirds(S(j,2))) .GT. 
      +        (fmin - eps*abs(fmin))) THEN
-              IF (dwrit .EQ. 2) THEN
-                Write(logfile,*) "> fmin - eps|fmin|"
-              END IF
+CC              IF (dwrit .EQ. 2) THEN
+CC                Write(logfile,*) "> fmin - eps|fmin|"
+CC              END IF
               GOTO 60
             END IF
          ELSE
-           IF (dwrit .EQ. 2) THEN
-           Write(logfile,*) "helpgreater > helplower",helpgreater,
-     +            helplower,helpgreater - helplower
-           END IF
+CC           IF (dwrit .EQ. 2) THEN
+CC           Write(logfile,*) "helpgreater > helplower",helpgreater,
+CC     +            helplower,helpgreater - helplower
+CC           END IF
            GOTO 60
          END IF
          GOTO 40
@@ -430,8 +430,8 @@ C| If the hyper rectangle with infeasibel midpoint is already the start  |
 C| of the list, give out message, nothing to do.                         |
 C+-----------------------------------------------------------------------+
       if (replace .eq. start) then
-C         write(logfile,*) 'No resorting of list necessarry, since new ',
-C     + 'point is already anchor of list .',l
+CC         write(logfile,*) 'No resorting of list necessarry, since new ',
+CC     + 'point is already anchor of list .',l
       else
 C+-----------------------------------------------------------------------+
 C| Take the hyper rectangle with infeasible midpoint out of the list.    |
@@ -862,10 +862,10 @@ C+-----------------------------------------------------------------------+
         IF (free .EQ. 0) THEN
            Write(*,1000) 
            Write(*,1001) 
-           IF (dwrit .EQ. 2) THEN
-             Write(logfile,1000)
-             Write(logfile,1001)
-           END IF
+CC           IF (dwrit .EQ. 2) THEN
+CC             Write(logfile,1000)
+CC             Write(logfile,1001)
+CC           END IF
            oops = 1
            RETURN
 1000  FORMAT("Error, no more free positions !")
@@ -882,9 +882,9 @@ C+-----------------------------------------------------------------------+
 30    CONTINUE
       IF (pos .GT. 0) THEN
           Write(*,2000)
-          IF (dwrit .EQ. 2) THEN
-             Write(logfile,2000)
-           END IF
+CC          IF (dwrit .EQ. 2) THEN
+CC             Write(logfile,2000)
+CC           END IF
           STOP
 2000      FORMAT("Error ! ") 
       END IF
@@ -1271,7 +1271,7 @@ C+-----------------------------------------------------------------------+
       
       Integer Imainver, Isubver, Isubsubver, Ihelp, numerrors
 
-      Write(logfile,900)
+CC      Write(logfile,900)
       numerrors = 0
       IError = 0
       Imainver = INT(version/100)
@@ -1294,7 +1294,7 @@ C+-----------------------------------------------------------------------+
         epsfix = 1.D100
       endif
       
-      write(logfile,100) Imainver, Isubver, Isubsubver
+CC      write(logfile,100) Imainver, Isubver, Isubsubver
       write(*,100) Imainver, Isubver, Isubsubver
 C+-----------------------------------------------------------------------+
 C| JG 07/16/01 Removed printout of contents in cdata(1).                 |
@@ -1318,36 +1318,36 @@ C+-----------------------------------------------------------------------+
 C| JG 07/16/01 Removed printout of contents in cdata(1).                 |
 C+-----------------------------------------------------------------------+
 C      write(logfile,*) cdata(1)
-      write(logfile,200) n
-      write(logfile,201) eps
-      write(logfile,202) maxf
-      write(logfile,203) maxT
-      write(logfile,204) fglobal
-      write(logfile,205) fglper
-      write(logfile,208) volper
-      write(logfile,209) sigmaper
+CC      write(logfile,200) n
+CC      write(logfile,201) eps
+CC      write(logfile,202) maxf
+CC      write(logfile,203) maxT
+CC      write(logfile,204) fglobal
+CC      write(logfile,205) fglper
+CC      write(logfile,208) volper
+CC      write(logfile,209) sigmaper
       if (iepschange .eq. 1) then
-         write(logfile,206)
+CC         write(logfile,206)
       else
-         write(logfile,207)
+CC         write(logfile,207)
       end if
       if (algmethod .eq. 0) then
          write(*,*) 'Jones original DIRECT algorithm is used.'
-         write(logfile,*) 'Jones original DIRECT algorithm is used.'
+CC         write(logfile,*) 'Jones original DIRECT algorithm is used.'
       else
          write(*,*) 'Our modification of the DIRECT algorithm is used.'
-         write(logfile,*) 'Our modification of the DIRECT algorithm',
-     +                    ' is used.'
+CC         write(logfile,*) 'Our modification of the DIRECT algorithm',
+CC     +                    ' is used.'
       end if
       do 1010, i = 1,n
          IF (u(i) .le. l(i)) then
             Ierror = -1
             write(*,153) i,l(i), u(i)
-            write(logfile,153) i,l(i), u(i)
+CC            write(logfile,153) i,l(i), u(i)
             numerrors = numerrors + 1
          else
             write(*,152) i,l(i), u(i)
-            write(logfile,152) i,l(i), u(i)
+CC            write(logfile,152) i,l(i), u(i)
          end if
 1010  continue
 C+-----------------------------------------------------------------------+
@@ -1357,25 +1357,25 @@ C| occurred, we give out an extra message.                               |
 C+-----------------------------------------------------------------------+
       IF ((maxf+20) .GT. maxfunc) THEN
          Write(*,10001) maxf, maxfunc
-         Write(logfile,10001) maxf, maxfunc
+CC         Write(logfile,10001) maxf, maxfunc
          numerrors = numerrors + 1
          IError = -2
       END IF
       if (IError .lt. 0) then
-         write(logfile,120)
+CC         write(logfile,120)
          write(*,120)
          if (numerrors .eq. 1) then
             write(*,105)
-            write(logfile,105)
+CC            write(logfile,105)
          else
             write(*,110) numerrors
-            write(logfile,110) numerrors
+CC            write(logfile,110) numerrors
          end if
       end if
-      write(logfile,120)
+CC      write(logfile,120)
       write(*,120)
       if (IError .ge. 0) then
-         write(logfile,*) 'Iteration   # of f-eval.   fmin'
+CC         write(logfile,*) 'Iteration   # of f-eval.   fmin'
       end if
 
 10001 FORMAT("WARNING : The maximum number of function evaluations (",
@@ -1418,17 +1418,17 @@ C+-----------------------------------------------------------------------+
       Double Precision x(n), l(n), u(n)
       Double Precision fglobal , fmin
 
-      Write(logfile,900)
-      Write(logfile,1000) fmin
-      Write(logfile,1010) numfunc
-      if (fglobal .gt. -1.D99) then
-         write(logfile,1001) 100*(fmin-fglobal)/max(1.D0,abs(fglobal))
-      end if
-      Write(logfile,1002) 
-      do 100, i = 1,n
-         write(logfile,1003) i, x(i), x(i)-l(i), u(i) - x(i)
-100   continue
-      write(logfile,1200)
+CC      Write(logfile,900)
+CC      Write(logfile,1000) fmin
+CC      Write(logfile,1010) numfunc
+CC      if (fglobal .gt. -1.D99) then
+CC         write(logfile,1001) 100*(fmin-fglobal)/max(1.D0,abs(fglobal))
+CC      end if
+CC      Write(logfile,1002) 
+CC      do 100, i = 1,n
+CC         write(logfile,1003) i, x(i), x(i)-l(i), u(i) - x(i)
+CC100   continue
+CC      write(logfile,1200)
       
 900   FORMAT('--------------------------------- Summary -------------'
      +       ,'-------------------')
@@ -1448,10 +1448,12 @@ C+-----------------------------------------------------------------------+
       IMPLICIT None
       INTEGER maxf,maxfunc,dwrit,logfile
 
-      Write(*,10001) maxf
-      Write(*,10002) maxfunc
-      Write(*,10003)
-      Write(*,10004)
+      IF (dwrit .gt. 0) THEN
+          Write(*,10001) maxf
+          Write(*,10002) maxfunc
+          Write(*,10003)
+          Write(*,10004)
+      END IF
       IF (dwrit .EQ. 2) THEN
          Write(logfile,10001) maxf
          Write(logfile,10002) maxfunc
