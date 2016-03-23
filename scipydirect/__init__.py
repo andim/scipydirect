@@ -112,6 +112,7 @@ def minimize(func, bounds=None, nvar=None, args=(), disp=False,
              fglper=0.01,
              volper=-1.0,
              sigmaper=-1.0,
+             **kwargs
              ):
     """
     Solve an optimization problem using the DIRECT (Dividing Rectangles) algorithm.
