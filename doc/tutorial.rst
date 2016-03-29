@@ -35,7 +35,7 @@ We use the `DIRECT` algorithm to solve the optimization problem.
 The algoritm is called using the ``minimize`` function. The `solve`
 functions accepts the problem objective ``obj`` and block constraints::
 
-  >>> res = solve(obj, bounds)
+  >>> res = minimize(obj, bounds)
 
 In the above we use the default settings of the `DIRECT` algorithm.
 It us possible to costumize the algorithm using the parameters of
@@ -65,7 +65,7 @@ We can visualize the problem using `matplotlib`::
 
 This results in
 
-.. image:: ../images/six_hump.png
+.. plot:: tutorialfig.py
    :align: center
    :scale: 100
 
