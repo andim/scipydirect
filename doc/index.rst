@@ -8,7 +8,8 @@ scipydirect Documentation
 
 .. automodule:: scipydirect.__init__
 
-Contents:
+Further reading
+---------------
 
 .. toctree::
    :maxdepth: 2
@@ -16,12 +17,3 @@ Contents:
    install
    tutorial
    reference
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
