@@ -3,8 +3,8 @@ README for scipydirect
 ===================
 
 .. image:: https://readthedocs.org/projects/scipydirect/badge/?version=latest
-:target: http://scipydirect.readthedocs.org/en/latest/?badge=latest
-:alt: Documentation Status
+    :target: http://scipydirect.readthedocs.org/en/latest/?badge=latest
+    :alt: Documentation Status
 
 DIRECT is a method to solve global bound constraint optimization problems and
 was originally developed by D. R. Jones, C. D. Perttunen and B. E. Stuckmann.
