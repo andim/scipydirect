@@ -28,7 +28,11 @@ algorithm can be found in Gablonsky's `thesis <http://repository.lib.ncsu.edu/ir
 """
 
 import numpy as np
-from .direct import direct
+try:
+    from .direct import direct
+except ImportError:
+    print 'Fortran code not compiled, module not functional'
+    direct = None
 
 
 __version_info__ = ('1', '0')
