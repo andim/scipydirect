@@ -37,20 +37,32 @@ def configuration(parent_package='',top_path=None):
                            url=URL,
                            long_description=LONG_DESCRIPTION)
 
-    config.add_extension('direct', sources=['src/direct.pyf', 'src/DIRect.f', 'src/DIRserial.f', 'src/DIRsubrout.f'])
-
     return config
 
 
 if __name__ == "__main__":
-
     from numpy.distutils.core import setup
-    setup(configuration=configuration,
-        packages=setuptools.find_packages(),
-        include_package_data=True,
-        platforms=["any"],
-        requires=["numpy"],
-        tests_require=['nose',],
-        test_suite='nose.collector',
-        zip_safe=True,
-        classifiers=classifiers)
+    kwargs = dict( 
+            packages=setuptools.find_packages(),
+            include_package_data=True,
+            platforms=["any"],
+            requires=["numpy"],
+            tests_require=['nose',],
+            test_suite='nose.collector',
+            zip_safe=True,
+            classifiers=classifiers,
+            )
+    try:
+        thiskwargs = kwargs.copy()
+        config = configuration()
+        config.add_extension('direct', sources=['src/direct.pyf', 'src/DIRect.f', 'src/DIRserial.f', 'src/DIRsubrout.f'])
+        thiskwargs.update(config.todict())
+        setup(**thiskwargs)
+    except:
+        # if there was an error try building module without Fortran extension
+        # the module will not be usable, but documentation can be built
+        # (for readthedocs)
+        thiskwargs = kwargs.copy()
+        config = configuration()
+        thiskwargs.update(config.todict())
+        setup(**thiskwargs)
