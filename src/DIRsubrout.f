@@ -167,7 +167,7 @@ C|                                                                       |
 C| pos     -- the position of the midpoint in the array length           |
 C| length  -- the array with the dimensions                              |
 C| maxfunc -- the leading dimension of length                            |
-C| n	   -- the dimension of the problem                                  |
+C| n       -- the dimension of the problem                               |
 C|                                                                       |
 C+-----------------------------------------------------------------------+
 
@@ -197,7 +197,7 @@ C|                                                                       |
 C| pos     -- the position of the midpoint in the array length           |
 C| length  -- the array with the dimensions                              |
 C| maxfunc -- the leading dimension of length                            |
-C| n	   -- the dimension of the problem                                  |
+C| n       -- the dimension of the problem                               |
 C|                                                                       |
 C+-----------------------------------------------------------------------+
 
@@ -607,7 +607,7 @@ C+-----------------------------------------------------------------------+
               END IF
             END IF
             pos = List2(pos,1)
-10	   CONTINUE
+10        CONTINUE
         END IF
 50     List2(j,2) = k 
 

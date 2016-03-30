@@ -34,6 +34,7 @@ python module direct ! in
             double precision dimension(n) :: l
             double precision dimension(n),depend(n) :: u
             integer :: algmethod
+            integer :: disp
             integer, intent(out) :: ierror
             character*(*) intent(in) :: logfilename
             double precision :: fglobal
