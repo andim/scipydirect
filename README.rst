@@ -2,6 +2,10 @@
     :target: http://scipydirect.readthedocs.org/en/latest/?badge=latest
     :alt: Documentation Status
 
+.. image:: https://travis-ci.org/andim/scipydirect.svg?branch=master
+    :target: https://travis-ci.org/andim/scipydirect
+    :alt: Continous Integration Status
+
 ===================
 Scipydirect
 ===================
