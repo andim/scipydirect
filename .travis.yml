@@ -6,6 +6,12 @@ sudo: false
 python:
   - 2.7
 
+addons:
+    apt:
+        packages:
+# fortran needed for direct compilation
+            - gfortran
+
 env:
   - CONDA_DEPS="pip pytest numpy scipy" PIP_DEPS="coveralls"
 
@@ -13,8 +19,6 @@ before_install:
 - export MINICONDA=$HOME/miniconda
 - export PATH="$MINICONDA/bin:$PATH"
 - hash -r
-# fortran needed for direct compilation
-- sudo apt-get install gfortran g77
 # Install conda only if necessary
 - command -v conda >/dev/null || { wget http://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh -O miniconda.sh;
    bash miniconda.sh -b -f -p $MINICONDA; }
