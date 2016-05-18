@@ -7,10 +7,9 @@ LONG_DESCRIPTION    ="""
 DIRECT is a method to solve global bound constraint optimization problems and
 was originally developed by D. R. Jones, C. D. Perttunen and B. E. Stuckmann.
 
-The scipydirect package uses the fortan implementation of DIRECT written by
+The scipydirect is a fork of pydirect providing a scipy.optimize compatible
+syntax. It uses the Fortan implementation of DIRECT written by
 Joerg M Gablonsky, DIRECT Version 2.0.4.
-
-Its call syntax is compatible with the optimizer's from scipy.optimize
 """
 MAINTAINER          = "Andreas Mayer"
 MAINTAINER_EMAIL    = "andisspam@gmail.com"
