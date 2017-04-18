@@ -6,6 +6,10 @@
     :target: https://travis-ci.org/andim/scipydirect
     :alt: Continous Integration Status
 
+.. image:: https://img.shields.io/pypi/v/scipydirect.svg
+    :target: https://pypi.python.org/pypi/scipydirect/
+    :alt: Latest PyPI release
+
 ===================
 Scipydirect
 ===================
