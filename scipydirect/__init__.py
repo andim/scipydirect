@@ -24,7 +24,7 @@ The DIRECT package uses the fortan implementation of DIRECT written by
 Joerg.M.Gablonsky, DIRECT Version 2.0.4. More information on the DIRECT
 algorithm can be found in Gablonsky's `thesis <http://repository.lib.ncsu.edu/ir/bitstream/1840.16/3920/1/etd.pdf>`_.
 
-.. codeauthor:: Andreas Mayer <andisspam@gmail.com>, Amit Aides <amitibo@tx.technion.ac.il>
+.. codeauthor:: Andreas Mayer <andimscience@gmail.com>, Amit Aides <amitibo@tx.technion.ac.il>
 """
 
 import numpy as np

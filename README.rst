@@ -65,4 +65,4 @@ Contributing
 ============
 
 For bug reports use the Github issue tool.
-You can also send wishes, comments, patches, etc. to andisspam@gmail.com
+You can also send wishes, comments, patches, etc. to andimscience@gmail.com

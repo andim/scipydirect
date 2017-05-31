@@ -12,7 +12,7 @@ syntax. It uses the Fortan implementation of DIRECT written by
 Joerg M Gablonsky, DIRECT Version 2.0.4.
 """
 MAINTAINER          = "Andreas Mayer"
-MAINTAINER_EMAIL    = "andisspam@gmail.com"
+MAINTAINER_EMAIL    = "andimscience@gmail.com"
 URL                 = "http://github.com/andim/scipydirect"
 LICENSE             = "MIT"
 VERSION             = "1.0"
