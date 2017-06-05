@@ -27,11 +27,12 @@ algorithm can be found in Gablonsky's `thesis <http://repository.lib.ncsu.edu/ir
 .. codeauthor:: Andreas Mayer <andimscience@gmail.com>, Amit Aides <amitibo@tx.technion.ac.il>
 """
 
+from __future__ import print_function
 import numpy as np
 try:
     from .direct import direct
 except ImportError:
-    print 'Fortran code not compiled, module not functional'
+    print('Fortran code not compiled, module not functional')
     direct = None
 
 
