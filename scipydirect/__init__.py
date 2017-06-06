@@ -17,10 +17,10 @@ subject to
 
        x_L \leq  x  \leq x_U
 
-Where :math:`x` are the optimization variables (with upper an lower
+Where :math:`x` are the optimization variables (with upper and lower
 bounds), :math:`f(x)` is the objective function.
 
-The DIRECT package uses the fortan implementation of DIRECT written by
+The DIRECT package uses the Fortran implementation of DIRECT written by
 Joerg.M.Gablonsky, DIRECT Version 2.0.4. More information on the DIRECT
 algorithm can be found in Gablonsky's `thesis <http://repository.lib.ncsu.edu/ir/bitstream/1840.16/3920/1/etd.pdf>`_.
 
@@ -133,23 +133,21 @@ def minimize(func, bounds=None, nvar=None, args=(), disp=False,
 
            x_L \leq  x  \leq x_U
     
-    Where :math:`x` are the optimization variables (with upper an lower
+    Where :math:`x` are the optimization variables (with upper and lower
     bounds), :math:`f(x)` is the objective function.
 
     Parameters
     ----------
-    func : function pointer
-        Callback function for evaluating objective function.
-        The callback functions accepts two parameters: x (value of the
-        optimization variables at which the objective is to be evaluated) and
-        user_data, an arbitrary data object supplied by the user.
-        The function should return a tuple of two values: the objective function
-        value at the point x and a value (flag) that is set to 1 if the function
-        is not defined at point x (0 if it is defined).
+    func : objective function
+        called as func(x, *args); does not need to be defined everywhere,
+        raise an Exception where function is not defined
     
     bounds : array-like
             ``(min, max)`` pairs for each element in ``x``, defining
             the bounds on that parameter.
+
+    nvar: integer
+        Dimensionality of x (only needed if `bounds` is not defined)
         
     eps : float
         Ensures sufficient decrease in function value when a new potentially
@@ -160,14 +158,14 @@ def minimize(func, bounds=None, nvar=None, args=(), disp=False,
         
         .. note::
         
-            Maximal allowed value is 90000 see documentation of fortran library.
+            Maximal allowed value is 90000 see documentation of Fortran library.
     
     maxT : integer
         Maximum number of iterations.
         
         .. note::
         
-            Maximal allowed value is 6000 see documentation of fortran library.
+            Maximal allowed value is 6000 see documentation of Fortran library.
         
     algmethod : integer
         Whether to use the original or modified DIRECT algorithm. Possible values:
@@ -217,8 +215,14 @@ def minimize(func, bounds=None, nvar=None, args=(), disp=False,
         """
         To simplify the python objective we use a wrapper objective that complies
         with the required fortran objective.
+
+        We return function value and a flag indicating whether function is defined.
+        If function is not defined return np.nan
         """
-        return func(x, *args), 0
+        try:
+            return func(x, *args), 0
+        except:
+            return np.nan, 1
 
     #
     # Dummy values so that the python wrapper will comply with the required
@@ -226,7 +230,7 @@ def minimize(func, bounds=None, nvar=None, args=(), disp=False,
     #
     iidata = np.ones(0, dtype=np.int32)
     ddata = np.ones(0, dtype=np.float64)
-    cdata = np.ones([0,40], dtype=np.uint8)
+    cdata = np.ones([0, 40], dtype=np.uint8)
 
     #
     # Call the DIRECT algorithm
