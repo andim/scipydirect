@@ -14,3 +14,4 @@ Further reading
    install
    tutorial
    reference
+   changelog

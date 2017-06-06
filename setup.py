@@ -10,6 +10,8 @@ was originally developed by D. R. Jones, C. D. Perttunen and B. E. Stuckmann.
 The scipydirect is a fork of pydirect providing a scipy.optimize compatible
 syntax. It uses the Fortan implementation of DIRECT written by
 Joerg M Gablonsky, DIRECT Version 2.0.4.
+
+For more info see the `documentation <http://scipydirect.readthedocs.io/en/latest/>`_ or the `source code <http://github.com/andim/scipydirect>`_.
 """
 MAINTAINER          = "Andreas Mayer"
 MAINTAINER_EMAIL    = "andimscience@gmail.com"

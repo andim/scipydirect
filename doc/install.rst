@@ -3,7 +3,11 @@
 Installation
 ============
 
-To install scipydirect you will need the following prerequisites:
+The quickest way to install is to type::
+
+    $ pip install scipydirect
+
+More detailed instructions follow. To install scipydirect you will need the following prerequisites:
 
 * python 2.6+
 * numpy
