@@ -22,7 +22,6 @@ algorithm can be found in Gablonsky's [thesis](http://repository.lib.ncsu.edu/ir
 ScipyDIRECT is a fork of [pydirect](https://bitbucket.org/amitibo/pydirect). It provides an alternative interface to the DIRECT algorithm compatible with that used in `scipy.optimize`.
 
 ## Quick start
-===============
 
 ScipyDIRECT is on [PyPI](https://pypi.python.org/pypi/scipydirect/) so you can install it using `pip install scipydirect`.
 
