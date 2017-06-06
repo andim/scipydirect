@@ -19,13 +19,18 @@ VERSION             = "1.0"
 
 classifiers =  ['Development Status :: 5 - Production/Stable',
                 'Programming Language :: Python',
+                "Programming Language :: Python :: 2",
+                "Programming Language :: Python :: 2.7",              
+                "Programming Language :: Python :: 3",              
+                "Programming Language :: Python :: 3.5",              
+                "Programming Language :: Python :: 3.6",              
                 'License :: OSI Approved :: MIT License',
                 'Intended Audience :: Science/Research',
                 'Topic :: Scientific/Engineering',
                 'Topic :: Scientific/Engineering :: Mathematics',
                 'Operating System :: OS Independent']
 
-def configuration(parent_package='',top_path=None):
+def configuration(parent_package='', top_path=None):
     from numpy.distutils.misc_util import Configuration
     config = Configuration(DISTNAME, parent_package, top_path,
                            version=VERSION,
