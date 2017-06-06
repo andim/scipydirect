@@ -36,7 +36,7 @@ except ImportError:
     direct = None
 
 
-__version_info__ = ('1', '0')
+__version_info__ = ('1', '1')
 __version__ = '.'.join(__version_info__)
 
 ERROR_MESSAGES = (
