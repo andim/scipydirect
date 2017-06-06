@@ -24,7 +24,7 @@ def obj(x):
 if __name__ == '__main__':
     bounds = [(-3, 3), (-2, 2)]
     res = minimize(obj, bounds)
-    print res
+    print(res)
     
     # Plot the results.
     fig = plt.figure()
