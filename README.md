@@ -6,7 +6,7 @@
 [![Build Status](https://travis-ci.org/andim/scipydirect.svg?branch=master)](https://travis-ci.org/andim/scipydirect)
 [![Documentation Status](https://readthedocs.org/projects/scipydirect/badge/?version=latest)](https://scipydirect.readthedocs.io/en/latest/?badge=latest)
 
-[![DOI](https://zenodo.org/badge/.svg)](https://zenodo.org/badge/latestdoi/)
+[![DOI](https://zenodo.org/badge/54575756.svg)](https://zenodo.org/badge/latestdoi/54575756)
 
 # ScipyDIRECT: a Python wrapper of the DIRECT global optimization algorithm
 

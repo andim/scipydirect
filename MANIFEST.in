@@ -3,6 +3,7 @@ include LICENSE
 recursive-include src *
 recursive-include scipydirect *.py
 recursive-include test *.py
+recursive-include examples *.py
 recursive-include doc Makefile *.rst *.py
 recursive-include doc/images *
 prune DIRECT.egg-info
