@@ -53,6 +53,7 @@ if __name__ == "__main__":
             include_package_data=True,
             platforms=["any"],
             requires=["numpy"],
+            install_requires=["numpy"],
             tests_require=['nose',],
             test_suite='nose.collector',
             zip_safe=True,
