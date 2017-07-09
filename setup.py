@@ -17,7 +17,7 @@ MAINTAINER          = "Andreas Mayer"
 MAINTAINER_EMAIL    = "andimscience@gmail.com"
 URL                 = "http://github.com/andim/scipydirect"
 LICENSE             = "MIT"
-VERSION             = "1.1"
+VERSION             = "1.2"
 
 classifiers =  ['Development Status :: 5 - Production/Stable',
                 'Programming Language :: Python',
