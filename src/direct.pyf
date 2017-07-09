@@ -13,7 +13,7 @@ python module direct__user__routines
             integer optional,check(len(iidata)>=iisize),depend(iidata) :: iisize=len(iidata)
             double precision dimension(idsize) :: ddata
             integer optional,check(len(ddata)>=idsize),depend(ddata) :: idsize=len(ddata)
-            character dimension(icsize,40),intent(c) :: cdata
+            byte dimension(icsize,40),intent(c) :: cdata
             integer optional,check(shape(cdata,0)==icsize),depend(cdata) :: icsize=shape(cdata,0)
         end subroutine fcn
     end interface direct_user_interface
@@ -45,7 +45,7 @@ python module direct ! in
             integer optional,check(len(iidata)>=iisize),depend(iidata) :: iisize=len(iidata)
             double precision dimension(idsize) :: ddata
             integer optional,check(len(ddata)>=idsize),depend(ddata) :: idsize=len(ddata)
-            character dimension(icsize,40),intent(c) :: cdata
+            byte dimension(icsize,40),intent(c) :: cdata
             integer optional,check(shape(cdata,0)==icsize),depend(cdata) :: icsize=shape(cdata,0)
             integer :: algmethod
             integer :: jones
