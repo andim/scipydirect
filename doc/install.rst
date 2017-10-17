@@ -9,17 +9,18 @@ The quickest way to install is to type::
 
 More detailed instructions follow. To install scipydirect you will need the following prerequisites:
 
-* python 2.6+
+* python 2.7 or 3.x
+* a FORTRAN compiler
 * numpy
-* C++ compiler
-* FORTRAN compiler
+* matplotlib (for the examples)
 
-`Python(x,y) <http://code.google.com/p/pythonxy/>`_ is a great way to get all
-of these if you are using windows and satisfied with 32bit.
+The `Anaconda <http://www.anaconda.com/download/>`_ distribution is a great way to install these 
+dependencies.
 
 Download the source files of scipydirect, unzip, and then execute::
 
     $ python setup.py install
 
 You can test the installation by running the examples under the folder ``test/``.
-Some of the examples require `matplotlib <http://matplotlib.org/>`_.
+
+If you're running into trouble when reinstalling scipydirect in different virtual environments make sure to use `--no-cache-dir` with `pip` as otherwise the Fortran extension might not be compiled properly.

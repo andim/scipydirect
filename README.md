@@ -24,6 +24,7 @@ ScipyDIRECT is a fork of [pydirect](https://bitbucket.org/amitibo/pydirect). It 
 ## Quick start
 
 ScipyDIRECT is on [PyPI](https://pypi.python.org/pypi/scipydirect/) so you can install it using `pip install scipydirect`.
+As a prerequisite make you sure you have a Fortran compiler such as gfortran installed.
 
 Then run the following minimal example.
 
