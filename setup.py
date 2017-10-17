@@ -1,5 +1,5 @@
 import setuptools
-
+import warnings
 
 DISTNAME            = "scipydirect"
 DESCRIPTION         = "Python wrapper to the DIRECT algorithm"
@@ -17,7 +17,7 @@ MAINTAINER          = "Andreas Mayer"
 MAINTAINER_EMAIL    = "andimscience@gmail.com"
 URL                 = "http://github.com/andim/scipydirect"
 LICENSE             = "MIT"
-VERSION             = "1.2"
+VERSION             = "1.3"
 
 classifiers =  ['Development Status :: 5 - Production/Stable',
                 'Programming Language :: Python',
@@ -69,6 +69,7 @@ if __name__ == "__main__":
         # if there was an error try building module without Fortran extension
         # the module will not be usable, but documentation can be built
         # (for readthedocs)
+        warnings.warn('There was an error with building the Fortran extension.')
         thiskwargs = kwargs.copy()
         config = configuration()
         thiskwargs.update(config.todict())

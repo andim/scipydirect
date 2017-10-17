@@ -1,6 +1,10 @@
 Changelog
 =========
 
+Version 1.3
+-----------
+- output warning at installation if extension module could not be compiled
+
 Version 1.2
 -----------
 - add numpy to install_requires and fix problem with newer f2py versions
