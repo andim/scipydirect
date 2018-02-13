@@ -139,7 +139,7 @@ def minimize(func, bounds=None, nvar=None, args=(), disp=False,
     Parameters
     ----------
     func : objective function
-        called as func(x, *args); does not need to be defined everywhere,
+        called as `func(x, *args)`; does not need to be defined everywhere,
         raise an Exception where function is not defined
     
     bounds : array-like
@@ -213,10 +213,10 @@ def minimize(func, bounds=None, nvar=None, args=(), disp=False,
 
     def _objective_wrap(x, iidata, ddata, cdata, n, iisize, idsize, icsize):
         """
-        To simplify the python objective we use a wrapper objective that complies
-        with the required fortran objective.
+        Wrap the python objective to comply with the signature required by the
+        Fortran library.
 
-        We return function value and a flag indicating whether function is defined.
+        Returns the function value and a flag indicating whether function is defined.
         If function is not defined return np.nan
         """
         try:
