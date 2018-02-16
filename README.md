@@ -51,3 +51,5 @@ You can run the testsuite from the test directory:
 
    cd test
    python test_direct.py
+
+If you receive the warning message "Fortran code not compiled", when you try to use the package the installation has not been successful. Numpy.distutils is used to handle the Fortran dependency, so you might find advice for how to solve your problems by searching for "numpy distutils fortran" online. Unfortunately Fortran installation issues seem to be common, but I cannot assist you in that regard as such an issue is specific to the details of your computer setup.
