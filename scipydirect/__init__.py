@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
+r"""
 scipydirect - A python wrapper to the DIRECT algorithm.
 =======================================================
 
@@ -9,13 +9,13 @@ It is designed to find **global** solutions of mathematical optimization problem
 
 .. math::
 
-       \\min_ {x \\in R^n} f(x)
+       \min_ {x \in R^n} f(x)
 
 subject to
 
 .. math::
 
-       x_L \\leq  x  \\leq x_U
+       x_L \leq  x  \leq x_U
 
 Where :math:`x` are the optimization variables (with upper and lower
 bounds), :math:`f(x)` is the objective function.
@@ -59,7 +59,7 @@ SUCCESS_MESSAGES = (
 # Class for returning the result of an optimization algorithm (copied from
 # scipy.optimize)
 class OptimizeResult(dict):
-    """ Represents the optimization result.
+    r""" Represents the optimization result.
 
     Attributes
     ----------
@@ -119,19 +119,19 @@ def minimize(func, bounds=None, nvar=None, args=(), disp=False,
              sigmaper=-1.0,
              **kwargs
              ):
-    """
+    r"""
     Solve an optimization problem using the DIRECT (Dividing Rectangles) algorithm.
     It can be used to solve general nonlinear programming problems of the form:
 
     .. math::
 
-           \\min_ {x \\in R^n} f(x)
+           \min_ {x \in R^n} f(x)
 
     subject to
 
     .. math::
 
-           x_L \\leq  x  \\leq x_U
+           x_L \leq  x  \leq x_U
     
     Where :math:`x` are the optimization variables (with upper and lower
     bounds), :math:`f(x)` is the objective function.
@@ -182,7 +182,7 @@ def minimize(func, bounds=None, nvar=None, args=(), disp=False,
         
         .. math::
 
-            100*(f_{min} - f_{global})/\\max(1, |f_{global}|) \\leq f_{glper}
+            100*(f_{min} - f_{global})/\max(1, |f_{global}|) \leq f_{glper}
         
     volper : float
         Terminate the optimization once the volume of a hyperrectangle is less
@@ -212,7 +212,7 @@ def minimize(func, bounds=None, nvar=None, args=(), disp=False,
         u = bounds[:, 1] 
 
     def _objective_wrap(x, iidata, ddata, cdata, n, iisize, idsize, icsize):
-        """
+        r"""
         Wrap the python objective to comply with the signature required by the
         Fortran library.
 
