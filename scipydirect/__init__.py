@@ -9,13 +9,13 @@ It is designed to find **global** solutions of mathematical optimization problem
 
 .. math::
 
-       \min_ {x \in R^n} f(x)
+       \\min_ {x \\in R^n} f(x)
 
 subject to
 
 .. math::
 
-       x_L \leq  x  \leq x_U
+       x_L \\leq  x  \\leq x_U
 
 Where :math:`x` are the optimization variables (with upper and lower
 bounds), :math:`f(x)` is the objective function.
@@ -125,13 +125,13 @@ def minimize(func, bounds=None, nvar=None, args=(), disp=False,
 
     .. math::
 
-           \min_ {x \in R^n} f(x)
+           \\min_ {x \\in R^n} f(x)
 
     subject to
 
     .. math::
 
-           x_L \leq  x  \leq x_U
+           x_L \\leq  x  \\leq x_U
     
     Where :math:`x` are the optimization variables (with upper and lower
     bounds), :math:`f(x)` is the objective function.
@@ -182,7 +182,7 @@ def minimize(func, bounds=None, nvar=None, args=(), disp=False,
         
         .. math::
 
-            100*(f_{min} - f_{global})/\max(1, |f_{global}|) \leq f_{glper}
+            100*(f_{min} - f_{global})/\\max(1, |f_{global}|) \\leq f_{glper}
         
     volper : float
         Terminate the optimization once the volume of a hyperrectangle is less
