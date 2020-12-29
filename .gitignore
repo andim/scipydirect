@@ -104,3 +104,4 @@ ENV/
 .DS_Store
 __MACOSX/
 .pytest_cache/
+DIRresults.txt
