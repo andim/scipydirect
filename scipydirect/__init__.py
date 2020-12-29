@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
+r"""
 scipydirect - A python wrapper to the DIRECT algorithm.
 =======================================================
 
@@ -59,7 +59,7 @@ SUCCESS_MESSAGES = (
 # Class for returning the result of an optimization algorithm (copied from
 # scipy.optimize)
 class OptimizeResult(dict):
-    """ Represents the optimization result.
+    r""" Represents the optimization result.
 
     Attributes
     ----------
@@ -119,7 +119,7 @@ def minimize(func, bounds=None, nvar=None, args=(), disp=False,
              sigmaper=-1.0,
              **kwargs
              ):
-    """
+    r"""
     Solve an optimization problem using the DIRECT (Dividing Rectangles) algorithm.
     It can be used to solve general nonlinear programming problems of the form:
 
@@ -212,7 +212,7 @@ def minimize(func, bounds=None, nvar=None, args=(), disp=False,
         u = bounds[:, 1] 
 
     def _objective_wrap(x, iidata, ddata, cdata, n, iisize, idsize, icsize):
-        """
+        r"""
         Wrap the python objective to comply with the signature required by the
         Fortran library.
 
