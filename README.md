@@ -19,7 +19,7 @@ comfort of the Python scripting language.
 The Scipydirect package uses the Fortran implementation of DIRECT written by Joerg M. Gablonsky, DIRECT Version 2.0.4. More information on the DIRECT
 algorithm can be found in Gablonsky's [thesis](http://repository.lib.ncsu.edu/ir/bitstream/1840.16/3920/1/etd.pdf).
 
-ScipyDIRECT is a fork of [pydirect](https://bitbucket.org/amitibo/pydirect). It provides an alternative interface to the DIRECT algorithm compatible with that used in `scipy.optimize`.
+ScipyDIRECT is a fork of [pydirect](https://github.com/amitibo/pydirect). It provides an alternative interface to the DIRECT algorithm compatible with that used in `scipy.optimize`.
 
 ## Quick start
 
