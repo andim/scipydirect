@@ -221,7 +221,7 @@ def minimize(func, bounds=None, nvar=None, args=(), disp=False,
         """
         try:
             return func(x, *args), 0
-        except:
+        except Exception:
             return np.nan, 1
 
     #
