@@ -58,18 +58,8 @@ if __name__ == "__main__":
             zip_safe=True,
             classifiers=classifiers,
             )
-    try:
-        thiskwargs = kwargs.copy()
-        config = configuration()
-        config.add_extension('direct', sources=['src/direct.pyf', 'src/DIRect.f', 'src/DIRserial.f', 'src/DIRsubrout.f'])
-        thiskwargs.update(config.todict())
-        setup(**thiskwargs)
-    except:
-        # if there was an error try building module without Fortran extension
-        # the module will not be usable, but documentation can be built
-        # (for readthedocs)
-        warnings.warn('There was an error with building the Fortran extension.')
-        thiskwargs = kwargs.copy()
-        config = configuration()
-        thiskwargs.update(config.todict())
-        setup(**thiskwargs)
+    thiskwargs = kwargs.copy()
+    config = configuration()
+    config.add_extension('direct', sources=['src/direct.pyf', 'src/DIRect.f', 'src/DIRserial.f', 'src/DIRsubrout.f'])
+    thiskwargs.update(config.todict())
+    setup(**thiskwargs)
