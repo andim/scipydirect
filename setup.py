@@ -17,15 +17,14 @@ MAINTAINER          = "Andreas Mayer"
 MAINTAINER_EMAIL    = "andimscience@gmail.com"
 URL                 = "http://github.com/andim/scipydirect"
 LICENSE             = "MIT"
-VERSION             = "1.3"
+VERSION             = "1.4"
 
 classifiers =  ['Development Status :: 5 - Production/Stable',
                 'Programming Language :: Python',
                 "Programming Language :: Python :: 2",
                 "Programming Language :: Python :: 2.7",              
                 "Programming Language :: Python :: 3",              
-                "Programming Language :: Python :: 3.5",              
-                "Programming Language :: Python :: 3.6",              
+                "Programming Language :: Python :: 3.8",              
                 'License :: OSI Approved :: MIT License',
                 'Intended Audience :: Science/Research',
                 'Topic :: Scientific/Engineering',
