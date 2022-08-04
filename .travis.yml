@@ -1,11 +1,14 @@
 language: python
 
-python:
-- 2.7
-- 3.8
-
+addons:
+    apt:
+        packages:
+            # fortran needed for direct compilation
+            - gfortran
+  
 install:
 - pip install -r requirements.txt
+- pip install .
 
 script:
 - pytest
@@ -18,10 +21,4 @@ deploy:
   distributions: "sdist"
   on:
     tags: true
-
-addons:
-    apt:
-        packages:
-# fortran needed for direct compilation
-            - gfortran
 
