@@ -1,10 +1,7 @@
-[![License](https://img.shields.io/pypi/l/scipydirect.svg)](https://github.com/andim/scipydirect/blob/master/LICENSE)
 [![Latest release](https://img.shields.io/pypi/v/scipydirect.svg)](https://pypi.python.org/pypi/scipydirect)
-[![Py2.7/3.x](https://img.shields.io/pypi/pyversions/scipydirect.svg)](https://pypi.python.org/pypi/scipydirect)
-
-![Status](https://img.shields.io/pypi/status/scipydirect.svg)
 [![Build Status](https://travis-ci.org/andim/scipydirect.svg?branch=master)](https://travis-ci.org/andim/scipydirect)
 [![Documentation Status](https://readthedocs.org/projects/scipydirect/badge/?version=latest)](https://scipydirect.readthedocs.io/en/latest/?badge=latest)
+[![License](https://img.shields.io/pypi/l/scipydirect.svg)](https://github.com/andim/scipydirect/blob/master/LICENSE)
 
 [![DOI](https://zenodo.org/badge/54575756.svg)](https://zenodo.org/badge/latestdoi/54575756)
 
