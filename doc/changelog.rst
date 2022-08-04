@@ -1,6 +1,10 @@
 Changelog
 =========
 
+Version 1.4
+-----------
+- better Exception Handling to allow keyboard interrupts
+
 Version 1.3
 -----------
 - output warning at installation if extension module could not be compiled
